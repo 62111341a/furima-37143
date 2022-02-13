@@ -11,7 +11,8 @@
 |date_of_birth|date|null: false|
 ##Association
 has_many :items
-has_one :order
+has_many :orders
+
 
 ##items テーブル
 |goods|string|null: false|
@@ -25,8 +26,8 @@ has_one :order
 |user|reference|null: false, foreign_key: true|
 
 ##Association
-has_many :items
-belongs_to :user
+has_one :order
+
 ##addresses テーブル
 |order|reference|null: false, foreign_key: true|
 |post|string|null: false|
