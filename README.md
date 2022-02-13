@@ -27,7 +27,7 @@ has_many :orders
 
 ##Association
 has_one :order
-
+belong_to :user
 ##addresses テーブル
 |order|reference|null: false, foreign_key: true|
 |post|string|null: false|
