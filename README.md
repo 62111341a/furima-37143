@@ -11,37 +11,36 @@
 |date_of_birth|date|null: false|
 ##Association
 has_many :items
-belong_to :users
+has_one :order
 
 ##items テーブル
-|goods_id|string|null: false|
-|goods_explanation_id|string|null: false|
-|category_id|integer|null: false, foreign_key: true|
+|goods|string|null: false|
+|goods_explanation|string|null: false|
+|category_id|integer|null: false|
 |goods_situation_id|integer|null: false|
 |delivery_charge_id|integer|null: false|
 |shipment_source_id|integer|null: false|
-|shipping_days_id|integer|null: false|
+|shipping_day_id|integer|null: false|
 |price|integer|null: false|
-|seller|string|null: false, foreign_key: true|
+|user|reference|null: false, foreign_key: true|
 
 ##Association
-belongs_to :item
+has_one :user
+belongs_to :order
 ##addresses テーブル
-|address|string|null: false, foreign_key: true |
+|address|references|null: false, foreign_key: true |
 |post|string|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |municipalities|null: false|
 |address|string|null: false|
-|building_name|string|null: false|
+|building_name|string|
 |telephone_number|string|null: false|
-|buyer|string|null: false, foreign_key: true |
 ##Association
-has_one :order
+belongs_to :order
 ##ordersテーブル
 |user|references|null: false, foreign_key: true |
 |item|references|null: false, foreign_key: true |
 ##Association
-has_one :item
-belong_to :item
+belongs_to :item
 belongs_to :user
 has_one :address
