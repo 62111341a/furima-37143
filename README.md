@@ -25,10 +25,10 @@ has_one :order
 |user|reference|null: false, foreign_key: true|
 
 ##Association
-has_one :user
-belongs_to :order
+has_many :users
+belongs_to :item
 ##addresses テーブル
-|address|references|null: false, foreign_key: true |
+|order|reference|null: false, foreign_key: true|
 |post|string|null: false|
 |prefecture_id|integer|null: false|
 |municipalities|null: false|
