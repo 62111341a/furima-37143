@@ -15,7 +15,7 @@ has_one :order
 
 ##items テーブル
 |goods|string|null: false|
-|goods_explanation|string|null: false|
+|goods_explanation|text|null: false|
 |category_id|integer|null: false|
 |goods_situation_id|integer|null: false|
 |delivery_charge_id|integer|null: false|
@@ -25,8 +25,8 @@ has_one :order
 |user|reference|null: false, foreign_key: true|
 
 ##Association
-has_many :users
-belongs_to :item
+has_many :items
+belongs_to :user
 ##addresses テーブル
 |order|reference|null: false, foreign_key: true|
 |post|string|null: false|
