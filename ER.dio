@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="wKAGAIkucJchTb0BWRsK" name="ページ1">
-        <mxGraphModel dx="1537" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="994" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -67,7 +67,7 @@
                 <mxCell id="133" value="has_many :items&lt;br&gt;belong_to :user" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-380" y="450" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="134" value="has_one:order" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="134" value="has_one:order&lt;br&gt;belong_to :user" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-730" y="440" width="120" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="150" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" target="144" edge="1">
