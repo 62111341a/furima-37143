@@ -10,8 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :surname
       t.string :name
       t.string :furigana_surname
-      t.string :furigana_surname
-      t.string :date_of_birth
+      t.string :furigana_name
+      t.date :date_of_birth
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

@@ -11,5 +11,8 @@ class User < ApplicationRecord
          validates :furigana_surname, presence: true
          validates :furigana_name, presence: true
          validates :date_of_birth, presence: true
+         has_many :items
+         
         end
+   
       
