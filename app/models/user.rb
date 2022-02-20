@@ -11,8 +11,16 @@ class User < ApplicationRecord
          validates :furigana_surname, presence: true
          validates :furigana_name, presence: true
          validates :date_of_birth, presence: true
-         has_many :items
+         validates :password, presence: true
+         validates :password, format: { with: /\A[a-z0-9]+\z/ , message: '英数字混合'}
+         with_options presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: '全角文字を使用してください' } do
+          validates :surname
+          validates :name
+
+         #has_many :items
          
         end
+      end
+
    
       
