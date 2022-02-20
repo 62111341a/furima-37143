@@ -14,8 +14,8 @@ class User < ApplicationRecord
          validates :password, presence: true
          validates :password, format: { with: /\A[a-z0-9]+\z/ , message: '英数字混合'}
          with_options presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: '全角文字を使用してください' } do
-          validates :surname
-          validates :name
+          validates :surname, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
+          validates :name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
 
          #has_many :items
          

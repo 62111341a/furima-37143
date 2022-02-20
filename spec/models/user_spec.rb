@@ -27,8 +27,40 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
+    it 'passwordが英字だけでは登録できないこと' do
+      @user.password = 'fdghjh'
+      @user.password_confirmation = 'fdghjh'
   
-
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+      it 'passwordが全角文字では登録できないこと'  do
+        @user.password = 'あああああああ'
+      @user.password_confirmation = 'あああああああ'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it '名字が半角英字では登録できないこと' do
+      @user.surname = 'fdghjh'
     
+  
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it '名前が半角英字では登録できないこと' do
+      @user.name = 'fdghjh'
+  
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it '名前(カナ)が全角日本語では登録できないこと' do
+      @user.surname = '隆太郎'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it '名字(カナ)が全角日本語では登録できないこと' do
+      @user.furigana_surname = '山田'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
 end
