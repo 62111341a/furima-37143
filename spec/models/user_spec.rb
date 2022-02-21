@@ -5,15 +5,16 @@ RSpec.describe User, type: :model do
     # ユーザー新規登録についてのテストコードを記述します  
     it 'nicknameが空では登録できない' do
       # nicknameが空では登録できないテストコードを記述します
-      user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
-      user.valid?
-      expect(user.errors.full_messages).to include("Nickname can't be blank")
+      @user.nickname = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
     end
     it 'emailが空では登録できない' do
       # emailが空では登録できないテストコードを記述します
-      user = User.new(nickname: 'test', email: '', password: '000000', password_confirmation: '000000')
-      user.valid?
-      expect(user.errors.full_messages).to include("Email can't be blank")
+      @user.email = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it 'passwordが半角数字だけでは登録できない' do
       @user.password = '1234567'
@@ -69,4 +70,13 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
+    describe 'ユーザー登録' do
+      context 'ユーザー登録できる場合' do
+    it 'すべての項目が入力されていれば登録出来る' do
+      expect(@user).to be_valid
+    end
+    context 'ユーザー登録できない場合' do
+      it '１つ以上の項目が入力されていなければ登録出来ない' do
+        @user.valid?
+    
 end
