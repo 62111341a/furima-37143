@@ -75,6 +75,24 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Furigana surname is invalid")
     end
-   end
+    it '重複したメールアドレスは登録出来ない' do
+      @user.save
+  another_user = FactoryBot.build(:user)
+  another_user.email = @user.email
+  another_user.valid?
+  expect(another_user.errors.full_messages).to include('Email has already been taken')
+    end
+    it 'メールアドレスに@を含まない場合は登録出来ない' do
+      @user.email = 'aaaaa.gmail.com'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email is invalid")
+    end   
+    it '生年月日が空だと登録出来ない' do
+      
+      @user.date_of_birth = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Date of birth can't be blank")
+    end
+    end
   end
 end
