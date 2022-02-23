@@ -20,10 +20,16 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
     it 'emailが空では登録できない' do
-      # emailが空では登録できないテストコードを記述します
+      
       @user.email = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Email can't be blank")
+    end
+    it 'passwordが空では登録できない' do
+      
+      @user.password = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password can't be blank")
     end
     it 'passwordが半角数字だけでは登録できない' do
       @user.password = '1234567'
