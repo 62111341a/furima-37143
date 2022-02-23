@@ -81,6 +81,26 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Furigana surname is invalid")
     end
+    it '名字(カナ)が空だと登録できないこと' do
+      @user.furigana_surname = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Furigana surname is invalid")
+    end
+    it '名前(カナ)が空だと登録できないこと' do
+      @user.furigana_surname = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Furigana surname is invalid")
+    end
+    it '名字(全角)が空だと登録できないこと' do
+      @user.furigana_surname = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Furigana surname is invalid")
+    end
+    it '名前(カナ)が空だと登録できないこと' do
+      @user.furigana_surname = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Furigana surname is invalid")
+    end
     it '重複したメールアドレスは登録出来ない' do
       @user.save
   another_user = FactoryBot.build(:user)
@@ -99,6 +119,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Date of birth can't be blank")
     end
+
     end
   end
 end
