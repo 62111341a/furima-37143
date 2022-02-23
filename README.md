@@ -1,4 +1,4 @@
-## users　テーブル
+## usersテーブル
 
 |Column|Type|Options|
 |nickname|string|null: false|
