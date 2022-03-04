@@ -20,7 +20,7 @@ has_many :orders
 |category_id|integer|null: false|
 |goods_situation_id|integer|null: false|
 |delivery_charge_id|integer|null: false|
-|shipment_source_id|integer|null: false|
+|shipping_source_id|integer|null: false|
 |shipping_day_id|integer|null: false|
 |price|integer|null: false|
 |user|reference|null: false, foreign_key: true|
