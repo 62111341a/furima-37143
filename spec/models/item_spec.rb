@@ -6,12 +6,10 @@ RSpec.describe Item, type: :model do
   describe '' do
     context '内容に問題ない場合' do
       it 'すべて正しく入力された時' do
-      
-      expect(@item).to be_valid
+        expect(@item).to be_valid
       end
     end
-    context'内容に問題がある場合' do
-  
+    context '内容に問題がある場合' do
       it '商品画像が空なら登録出来ない' do
         @item.image = nil
         @item.valid?
@@ -27,7 +25,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Goods explanation can't be blank")
       end
-      
+
       it 'カテゴリーが空なら登録出来ない' do
         @item.category_id = ''
         @item.valid?
@@ -94,7 +92,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price is invalid')
       end
       it 'priceが9,999,999円を超えると出品できないこと' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is invalid')
       end
@@ -104,7 +102,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品の状態に「---]が選択されている場合は登録出来ない' do
-        @item.goods_situation_id =1
+        @item.goods_situation_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Goods situation can't be blank")
       end
@@ -126,10 +124,8 @@ RSpec.describe Item, type: :model do
       it 'userが紐付いていないと保存できないこと' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
 end
-  
-
