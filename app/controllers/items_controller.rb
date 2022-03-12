@@ -19,6 +19,17 @@ class ItemsController < ApplicationController
   def show
     @item= Item.find(params[:id])
   end
+  def edit
+    @item = Item.find(params[:id])
+    if @item.save
+  else
+    render :new
+  end
+end
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+  end
   private
 
   def item_params
@@ -26,3 +37,5 @@ class ItemsController < ApplicationController
                                  :shipping_source_id, :goods, :goods_explanation, :price, :image).merge(user_id: current_user.id)
   end
 end
+
+
