@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index,:create]
     def index
         @item_order = ItemOrder.new
+        @item=Item.find(params[:item_id])
+        if@item.order.present?
+          redirect_to root_path
+        end
     end
   
     def create
