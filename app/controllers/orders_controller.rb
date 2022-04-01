@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   
     def create
       @item=Item.find(params[:item_id])
-        @item_order = ItemOrder.new(item_order_params)
+       
         
     if @item_order.valid?
       Payjp.api_key =  ENV["PAYJP_SECRET_KEY"]  
