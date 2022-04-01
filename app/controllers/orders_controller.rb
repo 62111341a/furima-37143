@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
         
     if @item_order.valid?
       Payjp.api_key =  ENV["PAYJP_SECRET_KEY"]  
-      Payjp.api_key =  ENV["PAYJP_Public_KEY"]
       Payjp::Charge.create(
         amount: @item.price,
         card: params[:token],    
