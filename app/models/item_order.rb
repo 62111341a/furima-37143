@@ -4,6 +4,8 @@ class ItemOrder
   with_options presence: true do
           validates :municipalities, presence: true
           validates :address, presence: true
+          validates :user_id, presence: true
+          validates :item_id, presence: true
           validates :token, presence: true
           validates :telephone_number, presence: true
           validates :post, format: { with: /\A\d{3}[-]\d{4}\z/}

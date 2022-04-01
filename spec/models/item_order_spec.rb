@@ -26,7 +26,7 @@ RSpec.describe ItemOrder, type: :model do
         expect(@item_order.errors.full_messages).to include("Post can't be blank")
       end
       it '都道府県が空だと保存できないこと' do
-        @item_order.shipping_source_id = ''
+        @item_order.shipping_source_id = 0
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Shipping source can't be blank")
       end
@@ -51,7 +51,7 @@ RSpec.describe ItemOrder, type: :model do
         expect(@item_order.errors.full_messages).to include('Telephone number is invalid')
       end
       it '電話番号が全角数字だと保存できないこと' do
-        @item_order.telephone_number = '２０００'
+        @item_order.telephone_number = '０９０１２３４５６７８'
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include('Telephone number is invalid')
       end
