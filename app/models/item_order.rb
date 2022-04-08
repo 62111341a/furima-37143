@@ -7,7 +7,6 @@ class ItemOrder
           validates :user_id, presence: true
           validates :item_id, presence: true
           validates :token, presence: true
-          validates :telephone_number, presence: true
           validates :post, format: { with: /\A\d{3}[-]\d{4}\z/}
           validates :telephone_number, format: { with: /\A\d{10,11}\z/}
   end
