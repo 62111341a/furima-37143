@@ -10,12 +10,15 @@
 |furigana_surname|string|null: false|
 |furigana_name|string|null: false|
 |date_of_birth|date|null: false|
+
 ##Association
 has_many :items
 has_many :orders
 
 
 ##items テーブル
+
+| ------ | ----- | ------- |
 |goods|string|null: false|
 |goods_explanation|text|null: false|
 |category_id|integer|null: false|
@@ -30,6 +33,8 @@ has_many :orders
 has_one :order
 belong_to :user
 ##addresses テーブル
+
+| ------ | ----- | ------- |
 |order|reference|null: false, foreign_key: true|
 |post|string|null: false|
 |shipping_source|integer|null: false|
@@ -37,11 +42,16 @@ belong_to :user
 |address|string|null: false|
 |building_name|string|
 |telephone_number|string|null: false|
+
 ##Association
 belongs_to :order
+
 ##ordersテーブル
+
+| ------ | ----- | ------- |
 |user|references|null: false, foreign_key: true |
 |item|references|null: false, foreign_key: true |
+
 ##Association
 belongs_to :item
 belongs_to :user
