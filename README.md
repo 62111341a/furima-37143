@@ -17,7 +17,7 @@ has_many :orders
 
 
 ##items テーブル
-
+|Column|Type|Options|
 | ------ | ----- | ------- |
 |goods|string|null: false|
 |goods_explanation|text|null: false|
@@ -34,6 +34,7 @@ has_one :order
 belong_to :user
 
 ##addresses テーブル
+|Column|Type|Options|
 | ------ | ----- | ------- |
 |order|reference|null: false, foreign_key: true|
 |post|string|null: false|
@@ -47,7 +48,7 @@ belong_to :user
 belongs_to :order
 
 ##ordersテーブル
-
+|Column|Type|Options|
 | -- | -------- | ----------------------------- |
 |user|references|null: false, foreign_key: true |
 |item|references|null: false, foreign_key: true |
