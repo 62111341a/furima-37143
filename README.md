@@ -11,12 +11,12 @@
 |furigana_name|string|null: false|
 |date_of_birth|date|null: false|
 
-##Association
+## Association
 has_many :items
 has_many :orders
 
 
-##items テーブル
+## items テーブル
 |Column|Type|Options|
 | ------ | ----- | ------- |
 |goods|string|null: false|
@@ -29,11 +29,11 @@ has_many :orders
 |price|integer|null: false|
 |user|reference|null: false, foreign_key: true|
 
-##Association
+## Association
 has_one :order
 belong_to :user
 
-##addresses テーブル
+## addresses テーブル
 |Column|Type|Options|
 | ------ | ----- | ------- |
 |order|reference|null: false, foreign_key: true|
@@ -44,16 +44,16 @@ belong_to :user
 |building_name|string|
 |telephone_number|string|null: false|
 
-##Association
+## Association
 belongs_to :order
 
-##ordersテーブル
+## ordersテーブル
 |Column|Type|Options|
 | -- | -------- | ----------------------------- |
 |user|references|null: false, foreign_key: true |
 |item|references|null: false, foreign_key: true |
 
-##Association
+## Association
 belongs_to :item
 belongs_to :user
 has_one :address
